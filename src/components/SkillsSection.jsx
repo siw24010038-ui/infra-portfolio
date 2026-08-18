@@ -15,7 +15,7 @@ export default function SkillsSection() {
       {/* Section Header */}
       <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto' }}>
         <div className="cyber-badge" style={{ marginBottom: '12px' }}>ABOUT ENGINEER</div>
-        <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#fff', marginBottom: '12px' }}>
+        <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#0f172a', marginBottom: '12px' }}>
           エンジニアプロフィール & スキル
         </h2>
         <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.6 }}>
@@ -31,19 +31,19 @@ export default function SkillsSection() {
               width: '64px',
               height: '64px',
               borderRadius: '16px',
-              background: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
+              background: 'linear-gradient(135deg, #0284c7 0%, #2563eb 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '1.8rem',
               fontWeight: 800,
               color: '#fff',
-              boxShadow: '0 0 20px rgba(6, 182, 212, 0.4)'
+              boxShadow: '0 4px 15px rgba(2, 132, 199, 0.3)'
             }}>
               山
             </div>
             <div>
-              <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff' }}>
+              <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0f172a' }}>
                 {engineerProfile.name}
               </h3>
               <div style={{ fontSize: '0.8rem', color: 'var(--cyan-primary)', fontWeight: 600 }}>
@@ -73,7 +73,7 @@ export default function SkillsSection() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           {/* Skill Matrix */}
           <div className="glass-card" style={{ padding: '32px' }}>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#fff', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Terminal size={20} color="var(--cyan-primary)" />
               技術スタック & ドメイン知識
             </h3>
