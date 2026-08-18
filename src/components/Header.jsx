@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Server, Terminal, User, Cpu } from 'lucide-react';
+import { ShieldCheck, Server, Terminal, User, Cpu, GitBranch } from 'lucide-react';
 
 export default function Header({ activeSection, setActiveSection }) {
   return (
@@ -57,8 +57,17 @@ export default function Header({ activeSection, setActiveSection }) {
           </button>
         </nav>
 
-        {/* Live System Status Badge */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        {/* Live System Status Badge & GitHub Link Button */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <a 
+            href="https://github.com/siw24010038-ui/infra-portfolio" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="btn-secondary"
+            style={{ fontSize: '0.8rem', padding: '6px 14px', textDecoration: 'none', borderColor: 'var(--cyan-primary)' }}
+          >
+            <GitBranch size={16} color="var(--cyan-primary)" /> GitHub リポジトリ
+          </a>
           <div className="cyber-badge green">
             <span className="pulse-dot"></span>
             ALL SYSTEMS OPERATIONAL

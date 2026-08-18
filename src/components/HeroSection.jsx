@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Cloud, Terminal, CheckCircle2, ArrowDownRight, Activity } from 'lucide-react';
+import { ShieldCheck, Cloud, Terminal, CheckCircle2, ArrowDownRight, Activity, GitBranch } from 'lucide-react';
 import { engineerProfile } from '../data/projectsData';
 
 export default function HeroSection({ scrollToWorks }) {
@@ -50,8 +50,14 @@ export default function HeroSection({ scrollToWorks }) {
               <button className="btn-primary" onClick={scrollToWorks}>
                 <Cloud size={18} /> 制作作品 (3作品) を見る
               </button>
-              <a href="#skills" className="btn-secondary" style={{ textDecoration: 'none' }}>
-                <Terminal size={18} /> 技術スタック・設計思想
+              <a 
+                href="https://github.com/siw24010038-ui/infra-portfolio" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-secondary" 
+                style={{ textDecoration: 'none', color: '#fff', borderColor: 'var(--cyan-primary)' }}
+              >
+                <GitBranch size={18} color="var(--cyan-primary)" /> 🔗 GitHub リポジトリへ接続
               </a>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Terminal, Copy, Check, FileCode, Play, AlertCircle } from 'lucide-react';
+import { Terminal, Copy, Check, FileCode, Play, AlertCircle, GitBranch } from 'lucide-react';
 
 export default function CodeViewer({ project }) {
   const [selectedFile, setSelectedFile] = useState(project.codeFiles[0]);
@@ -77,8 +77,18 @@ export default function CodeViewer({ project }) {
           })}
         </div>
 
-        {/* Copy & Terraform Validate Simulation buttons */}
+        {/* Copy & GitHub & Terraform Validate Simulation buttons */}
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+          <a 
+            href="https://github.com/siw24010038-ui/infra-portfolio" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn-secondary" 
+            style={{ fontSize: '0.75rem', padding: '4px 10px', textDecoration: 'none', color: '#fff' }}
+          >
+            <GitBranch size={12} color="var(--cyan-primary)" /> GitHubでコードを見る
+          </a>
+
           <button 
             className="btn-secondary"
             onClick={handleSimulateValidate}
