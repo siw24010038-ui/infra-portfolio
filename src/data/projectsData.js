@@ -613,9 +613,9 @@ resource "aws_vpn_connection" "tgw_vpn" {
 export const engineerProfile = {
   name: "山﨑 雄大",
   nameEnglish: "Yudai Yamazaki",
-  role: "IT Infrastructure & Cloud Engineer",
-  tagline: "可用性・冗長化の徹底追求と Infrastructure as Code (Terraform) による再現可能なモダンクラウド基盤の構築",
-  bio: "AWS / Linux / Terraform を軸としたクラウドインフラエンジニア。単一障害点(SPOF)のない高可用性アーキテクチャ設計、自動化による運用コスト削減、GitOpsを用いた現代的なコンテナ基盤の構築を得意としています。",
+  role: "IT系専門学校生 / クラウド・インフラエンジニア志望",
+  tagline: "専門学校でITインフラを学びながら、AWS・Terraform・Kubernetesでの実践的な高可用性基盤構築を追求中",
+  bio: "IT系専門学校でサーバー・ネットワークおよびクラウド技術を専攻している学生です。授業でのサーバー構築をきっかけにAWSやTerraform (IaC)、Kubernetes (EKS) に興味を持ち、単一障害点(SPOF)のない高可用性構成やGitOps自動化を意識したインフラ設計・構築を日々学習・実践しています。",
   location: "Saitama, Japan",
   socials: {
     github: "https://github.com/siw24010038-ui/infra-portfolio",

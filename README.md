@@ -131,11 +131,11 @@ npm run build
 ## 👤 作成者情報 (Author)
 
 - **名前**: 山﨑 雄大 (Yudai Yamazaki)
-- **職種**: IT インフラ / クラウドエンジニア
-- **設計思想**:
-  1. **SPOF（単一障害点）のない Multi-AZ 構成の徹底**
-  2. **100% Infrastructure as Code (Terraform) による再現性と変更追跡**
-  3. **最小権限セキュリティ原則 (Least Privilege) と通信の常時暗号化**
+- **区分**: IT系専門学校生 / クラウド・インフラエンジニア志望
+- **学習テーマ・こだわり**:
+  1. **SPOF（単一障害点）のない Multi-AZ 構成の徹底追及**
+  2. **100% Infrastructure as Code (Terraform) による構築の再現性と自動化**
+  3. **最小権限セキュリティ原則 (Least Privilege) と通信暗号化の徹底**
 
 ---
 
