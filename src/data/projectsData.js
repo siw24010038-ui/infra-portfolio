@@ -616,12 +616,12 @@ export const engineerProfile = {
   role: "IT Infrastructure & Cloud Engineer",
   tagline: "可用性・冗長化の徹底追求と Infrastructure as Code (Terraform) による再現可能なモダンクラウド基盤の構築",
   bio: "AWS / Linux / Terraform を軸としたクラウドインフラエンジニア。単一障害点(SPOF)のない高可用性アーキテクチャ設計、自動化による運用コスト削減、GitOpsを用いた現代的なコンテナ基盤の構築を得意としています。",
-  location: "Japan",
+  location: "Saitama, Japan",
   socials: {
     github: "https://github.com/siw24010038-ui/infra-portfolio",
     qiita: "https://qiita.com",
     zenn: "https://zenn.dev",
-    email: "yudai.yamazaki.infra@example.com"
+    email: "siw24010038@gmail.com"
   },
   skills: [
     { category: "Cloud & Virtualization", items: ["AWS (VPC, EC2, ALB, RDS, EKS, TGW, CloudFront)", "Docker", "Kubernetes"] },

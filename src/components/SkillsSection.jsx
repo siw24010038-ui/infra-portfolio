@@ -64,7 +64,7 @@ export default function SkillsSection() {
               <Mail size={16} color="var(--cyan-primary)" /> {engineerProfile.socials.email}
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-muted)' }}>
-              <Globe size={16} color="var(--cyan-primary)" /> Tokyo, Japan
+              <Globe size={16} color="var(--cyan-primary)" /> {engineerProfile.location}
             </div>
           </div>
         </div>
