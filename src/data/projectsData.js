@@ -615,7 +615,7 @@ export const engineerProfile = {
   nameEnglish: "Yudai Yamazaki",
   role: "IT系専門学校生 / クラウド・インフラエンジニア志望",
   tagline: "専門学校でITインフラを学びながら、AWS・Terraform・Kubernetesでの実践的な高可用性基盤構築を追求中",
-  bio: "IT系専門学校でサーバー・ネットワークおよびクラウド技術を専攻している学生です。授業でのサーバー構築をきっかけにAWSやTerraform (IaC)、Kubernetes (EKS) に興味を持ち、単一障害点(SPOF)のない高可用性構成やGitOps自動化を意識したインフラ設計・構築を日々学習・実践しています。",
+  bio: "IT専門学校でプログラミングを学んでいます。まだまだ未熟ですが、毎日少しずつ成長できるように努力しています。立派なエンジニアになりたいです。",
   location: "Saitama, Japan",
   socials: {
     github: "https://github.com/siw24010038-ui/infra-portfolio",
