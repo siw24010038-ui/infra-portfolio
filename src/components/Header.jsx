@@ -41,22 +41,6 @@ export default function Header({ activeSection, setActiveSection }) {
           </div>
         </div>
 
-        {/* Navigation Items */}
-        <nav style={{ display: 'flex', gap: '8px' }}>
-          <button 
-            className={`tab-btn ${activeSection === 'works' ? 'active' : ''}`}
-            onClick={() => setActiveSection('works')}
-          >
-            <Server size={16} /> 制作実績 (3作品)
-          </button>
-          <button 
-            className={`tab-btn ${activeSection === 'skills' ? 'active' : ''}`}
-            onClick={() => setActiveSection('skills')}
-          >
-            <User size={16} /> エンジニア情報・スキル
-          </button>
-        </nav>
-
         {/* Live System Status Badge & GitHub Link Button */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <a 
