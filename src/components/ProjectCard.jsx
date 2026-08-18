@@ -56,16 +56,17 @@ export default function ProjectCard({ project, onOpenModal }) {
           </div>
         </div>
 
-        {/* Tech Stack Tags */}
+        {/* Tech Stack Tags (High Contrast) */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '24px' }}>
           {project.tags.map((tag) => (
             <span key={tag} style={{
-              background: 'rgba(30, 41, 59, 0.6)',
-              color: 'var(--text-muted)',
-              fontSize: '0.75rem',
-              padding: '3px 8px',
-              borderRadius: '4px',
-              border: '1px solid rgba(255,255,255,0.06)'
+              background: '#e0f2fe',
+              color: '#0369a1',
+              fontWeight: 700,
+              fontSize: '0.78rem',
+              padding: '4px 10px',
+              borderRadius: '6px',
+              border: '1px solid #7dd3fc'
             }}>
               #{tag}
             </span>

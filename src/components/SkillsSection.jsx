@@ -92,13 +92,13 @@ export default function SkillsSection() {
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                     {group.items.map((skill) => (
                       <span key={skill} style={{
-                        background: '#ffffff',
-                        color: '#0f172a',
-                        fontSize: '0.8rem',
-                        fontWeight: 600,
-                        padding: '4px 10px',
+                        background: '#e0f2fe',
+                        color: '#0369a1',
+                        fontSize: '0.82rem',
+                        fontWeight: 700,
+                        padding: '5px 12px',
                         borderRadius: '6px',
-                        border: '1px solid #cbd5e1'
+                        border: '1px solid #7dd3fc'
                       }}>
                         {skill}
                       </span>
