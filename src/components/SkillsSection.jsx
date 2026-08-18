@@ -81,8 +81,8 @@ export default function SkillsSection() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {engineerProfile.skills.map((group) => (
                 <div key={group.category} style={{
-                  background: 'rgba(11, 17, 32, 0.6)',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  background: '#f8fafc',
+                  border: '1px solid #e2e8f0',
                   borderRadius: '10px',
                   padding: '16px'
                 }}>
@@ -92,12 +92,13 @@ export default function SkillsSection() {
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                     {group.items.map((skill) => (
                       <span key={skill} style={{
-                        background: 'rgba(30, 41, 59, 0.8)',
-                        color: '#f8fafc',
+                        background: '#ffffff',
+                        color: '#0f172a',
                         fontSize: '0.8rem',
+                        fontWeight: 600,
                         padding: '4px 10px',
                         borderRadius: '6px',
-                        border: '1px solid var(--border-cyan)'
+                        border: '1px solid #cbd5e1'
                       }}>
                         {skill}
                       </span>
@@ -110,13 +111,13 @@ export default function SkillsSection() {
 
           {/* Design Principles */}
           <div className="glass-card" style={{ padding: '32px' }}>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#fff', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Shield size={20} color="var(--emerald-success)" />
               インフラ設計の基本方針 (Core Principles)
             </h3>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
-              <div style={{ background: '#0b1120', padding: '16px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '10px', border: '1px solid #e2e8f0' }}>
                 <div style={{ fontWeight: 700, color: 'var(--cyan-primary)', fontSize: '0.9rem', marginBottom: '6px' }}>
                   1. SPOF排除とMulti-AZ冗長化
                 </div>
@@ -125,7 +126,7 @@ export default function SkillsSection() {
                 </div>
               </div>
 
-              <div style={{ background: '#0b1120', padding: '16px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '10px', border: '1px solid #e2e8f0' }}>
                 <div style={{ fontWeight: 700, color: 'var(--emerald-success)', fontSize: '0.9rem', marginBottom: '6px' }}>
                   2. 100% Terraform (IaC) コード化
                 </div>

@@ -51,12 +51,13 @@ export default function AvailabilitySection({ project }) {
 
       {/* SPOF Checklist */}
       <div style={{
-        background: '#090e1a',
+        background: '#ffffff',
         border: '1px solid var(--border-cyan)',
         borderRadius: '14px',
-        padding: '24px'
+        padding: '24px',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.03)'
       }}>
-        <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <ShieldCheck color="var(--emerald-success)" size={20} />
           単一障害点 (SPOF) 排除チェックリスト
         </h3>
@@ -66,8 +67,8 @@ export default function AvailabilitySection({ project }) {
             <div 
               key={idx}
               style={{
-                background: 'rgba(15, 23, 42, 0.8)',
-                border: '1px solid rgba(255,255,255,0.06)',
+                background: '#f8fafc',
+                border: '1px solid #e2e8f0',
                 borderRadius: '10px',
                 padding: '14px 18px',
                 display: 'flex',
@@ -77,7 +78,7 @@ export default function AvailabilitySection({ project }) {
               }}
             >
               <div>
-                <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#fff', marginBottom: '4px' }}>
+                <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#0f172a', marginBottom: '4px' }}>
                   {item.item}
                 </div>
                 <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
@@ -86,9 +87,9 @@ export default function AvailabilitySection({ project }) {
               </div>
 
               <span style={{
-                background: 'rgba(16, 185, 129, 0.15)',
+                background: 'rgba(5, 150, 105, 0.1)',
                 color: 'var(--emerald-success)',
-                border: '1px solid rgba(16, 185, 129, 0.4)',
+                border: '1px solid rgba(5, 150, 105, 0.3)',
                 borderRadius: '6px',
                 padding: '4px 10px',
                 fontSize: '0.75rem',
@@ -105,18 +106,19 @@ export default function AvailabilitySection({ project }) {
 
       {/* AZ Failover Scenario Walkthrough */}
       <div style={{
-        background: '#090e1a',
-        border: '1px solid rgba(255,255,255,0.08)',
+        background: '#ffffff',
+        border: '1px solid #e2e8f0',
         borderRadius: '14px',
-        padding: '24px'
+        padding: '24px',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.03)'
       }}>
-        <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#0f172a', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <RefreshCw size={18} color="var(--cyan-primary)" />
           アベイラビリティゾーン (AZ) 障害発生時のフェイルオーバーシーケンス
         </h3>
 
         <div style={{
-          background: '#0b1120',
+          background: '#f8fafc',
           border: '1px dashed var(--border-cyan)',
           borderRadius: '10px',
           padding: '16px',

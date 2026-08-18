@@ -7,9 +7,9 @@ export default function Header({ activeSection, setActiveSection }) {
       position: 'sticky',
       top: 0,
       zIndex: 100,
-      background: 'rgba(9, 13, 22, 0.85)',
+      background: 'rgba(255, 255, 255, 0.9)',
       backdropFilter: 'blur(12px)',
-      borderBottom: '1px solid rgba(6, 182, 212, 0.2)',
+      borderBottom: '1px solid rgba(226, 232, 240, 0.8)',
       padding: '14px 28px'
     }}>
       <div style={{

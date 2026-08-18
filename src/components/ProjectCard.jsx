@@ -22,10 +22,10 @@ export default function ProjectCard({ project, onOpenModal }) {
         </div>
 
         {/* Project Title */}
-        <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '6px', lineHeight: 1.3 }}>
+        <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0f172a', marginBottom: '6px', lineHeight: 1.3 }}>
           {project.title}
         </h3>
-        <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)', marginBottom: '16px', fontFamily: 'var(--font-mono)' }}>
+        <div style={{ fontSize: '0.8rem', color: 'var(--cyan-primary)', marginBottom: '16px', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
           {project.englishTitle}
         </div>
 
@@ -36,8 +36,8 @@ export default function ProjectCard({ project, onOpenModal }) {
 
         {/* Highlights Row */}
         <div style={{
-          background: 'rgba(11, 17, 32, 0.7)',
-          border: '1px solid rgba(255,255,255,0.06)',
+          background: '#f1f5f9',
+          border: '1px solid #e2e8f0',
           borderRadius: '10px',
           padding: '12px 16px',
           display: 'grid',

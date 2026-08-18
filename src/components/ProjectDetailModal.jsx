@@ -16,7 +16,7 @@ export default function ProjectDetailModal({ project, onClose }) {
         {/* Modal Header */}
         <div style={{
           padding: '24px 32px 18px',
-          borderBottom: '1px solid rgba(6, 182, 212, 0.2)',
+          borderBottom: '1px solid rgba(226, 232, 240, 0.8)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'flex-start',
@@ -27,7 +27,7 @@ export default function ProjectDetailModal({ project, onClose }) {
               <span className="cyber-badge">{project.category}</span>
               <span className="cyber-badge green">{project.badge}</span>
             </div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#fff', lineHeight: 1.3 }}>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a', lineHeight: 1.3 }}>
               {project.title}
             </h2>
           </div>
@@ -35,9 +35,9 @@ export default function ProjectDetailModal({ project, onClose }) {
           <button
             onClick={onClose}
             style={{
-              background: 'rgba(30, 41, 59, 0.8)',
-              border: '1px solid var(--border-cyan)',
-              color: 'var(--text-muted)',
+              background: '#f1f5f9',
+              border: '1px solid #cbd5e1',
+              color: 'var(--text-main)',
               borderRadius: '10px',
               width: '38px',
               height: '38px',
@@ -55,8 +55,8 @@ export default function ProjectDetailModal({ project, onClose }) {
         {/* Modal Navigation Tabs */}
         <div style={{
           padding: '0 32px',
-          background: '#090e1a',
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
+          background: '#f8fafc',
+          borderBottom: '1px solid #e2e8f0',
           display: 'flex',
           gap: '12px'
         }}>

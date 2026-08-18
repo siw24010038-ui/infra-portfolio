@@ -34,12 +34,10 @@ export default function HeroSection({ scrollToWorks }) {
               fontWeight: 800,
               lineHeight: 1.25,
               marginBottom: '16px',
-              background: 'linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #06b6d4 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
+              color: '#0f172a'
             }}>
               可用性と自動化を追求する<br />
-              クラウドインフラ ポートフォリオ
+              <span style={{ color: 'var(--cyan-primary)' }}>クラウドインフラ ポートフォリオ</span>
             </h1>
 
             <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.7, marginBottom: '28px', maxWidth: '680px' }}>
@@ -55,7 +53,7 @@ export default function HeroSection({ scrollToWorks }) {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn-secondary" 
-                style={{ textDecoration: 'none', color: '#fff', borderColor: 'var(--cyan-primary)' }}
+                style={{ textDecoration: 'none', color: 'var(--text-main)', borderColor: 'var(--border-cyan)' }}
               >
                 <GitBranch size={18} color="var(--cyan-primary)" /> 🔗 GitHub リポジトリへ接続
               </a>
@@ -64,10 +62,11 @@ export default function HeroSection({ scrollToWorks }) {
 
           {/* Quick Metrics Card */}
           <div style={{
-            background: 'rgba(11, 17, 32, 0.8)',
+            background: '#ffffff',
             border: '1px solid var(--border-cyan)',
             borderRadius: '16px',
             padding: '24px',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
             display: 'flex',
             flexDirection: 'column',
             gap: '16px'
@@ -76,8 +75,8 @@ export default function HeroSection({ scrollToWorks }) {
               <Activity size={16} /> PORTFOLIO HIGHLIGHTS
             </div>
 
-            <div style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '12px' }}>
-              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#fff' }}>3 作品</div>
+            <div style={{ borderBottom: '1px solid rgba(0,0,0,0.06)', paddingBottom: '12px' }}>
+              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#0f172a' }}>3 作品</div>
               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>AWS構成図・Terraformコード・可用性分析完備</div>
             </div>
 

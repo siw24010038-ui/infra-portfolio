@@ -28,7 +28,7 @@ export default function ArchitectureDiagram({ project }) {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: '20px' }}>
         {/* Visual Diagram Box */}
         <div style={{
-          background: '#090e1a',
+          background: '#ffffff',
           border: '1px solid var(--border-cyan)',
           borderRadius: '14px',
           padding: '28px',
@@ -36,7 +36,8 @@ export default function ArchitectureDiagram({ project }) {
           position: 'relative',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.03)'
         }}>
           {/* Subnet Boundaries Visual Background */}
           <div style={{
@@ -45,11 +46,11 @@ export default function ArchitectureDiagram({ project }) {
             left: '16px',
             right: '16px',
             bottom: '16px',
-            border: '1px dashed rgba(6, 182, 212, 0.15)',
+            border: '1.5px dashed rgba(2, 132, 199, 0.25)',
             borderRadius: '10px',
             pointerEvents: 'none'
           }}>
-            <span style={{ position: 'absolute', top: '8px', left: '12px', fontSize: '0.7rem', color: 'var(--text-dim)', fontWeight: 600 }}>
+            <span style={{ position: 'absolute', top: '8px', left: '12px', fontSize: '0.7rem', color: 'var(--cyan-primary)', fontWeight: 700 }}>
               AWS REGION: ap-northeast-1 (TOKYO) - MULTI-AZ ISOLATION
             </span>
           </div>
@@ -70,13 +71,13 @@ export default function ArchitectureDiagram({ project }) {
                   key={node.id}
                   onClick={() => setSelectedNode(node)}
                   style={{
-                    background: isSelected ? 'rgba(6, 182, 212, 0.15)' : 'rgba(15, 23, 42, 0.9)',
-                    border: `1.5px solid ${isSelected ? 'var(--cyan-primary)' : 'rgba(255,255,255,0.08)'}`,
+                    background: isSelected ? 'rgba(2, 132, 199, 0.08)' : '#f8fafc',
+                    border: `1.5px solid ${isSelected ? 'var(--cyan-primary)' : '#e2e8f0'}`,
                     borderRadius: '12px',
                     padding: '16px',
                     cursor: 'pointer',
                     transition: 'all 0.2s ease',
-                    boxShadow: isSelected ? '0 0 20px rgba(6, 182, 212, 0.3)' : 'none'
+                    boxShadow: isSelected ? '0 0 15px rgba(2, 132, 199, 0.2)' : 'none'
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
@@ -84,7 +85,7 @@ export default function ArchitectureDiagram({ project }) {
                       width: '32px',
                       height: '32px',
                       borderRadius: '8px',
-                      background: isSelected ? 'var(--cyan-primary)' : 'rgba(30, 41, 59, 0.8)',
+                      background: isSelected ? 'var(--cyan-primary)' : '#e2e8f0',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -96,18 +97,18 @@ export default function ArchitectureDiagram({ project }) {
                        <Server size={18} />}
                     </div>
 
-                    <span style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--emerald-success)', background: 'rgba(16,185,129,0.1)', padding: '2px 6px', borderRadius: '4px' }}>
+                    <span style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--emerald-success)', background: 'rgba(5,150,105,0.1)', padding: '2px 6px', borderRadius: '4px' }}>
                       {node.status}
                     </span>
                   </div>
 
-                  <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#fff', marginBottom: '4px' }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#0f172a', marginBottom: '4px' }}>
                     {node.name}
                   </div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                     {node.type}
                   </div>
-                  <div style={{ fontSize: '0.7rem', color: 'var(--cyan-primary)', marginTop: '6px' }}>
+                  <div style={{ fontSize: '0.7rem', color: 'var(--cyan-primary)', marginTop: '6px', fontWeight: 600 }}>
                     📍 {node.az}
                   </div>
                 </div>
@@ -137,17 +138,18 @@ export default function ArchitectureDiagram({ project }) {
 
         {/* Node Detail Inspector Drawer */}
         <div style={{
-          background: 'rgba(15, 23, 42, 0.95)',
+          background: '#ffffff',
           border: '1px solid var(--border-cyan)',
           borderRadius: '14px',
           padding: '20px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '14px'
+          gap: '14px',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.03)'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid rgba(255,255,255,0.08)', pb: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid #e2e8f0', pb: '10px' }}>
             <Info size={18} color="var(--cyan-primary)" />
-            <span style={{ fontWeight: 700, fontSize: '0.9rem', color: '#fff' }}>コンポーネント詳細仕様</span>
+            <span style={{ fontWeight: 700, fontSize: '0.9rem', color: '#0f172a' }}>コンポーネント詳細仕様</span>
           </div>
 
           {selectedNode ? (
@@ -155,7 +157,7 @@ export default function ArchitectureDiagram({ project }) {
               <div className="cyber-badge" style={{ marginBottom: '8px' }}>
                 {selectedNode.type}
               </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff', marginBottom: '8px' }}>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px' }}>
                 {selectedNode.name}
               </h3>
 
@@ -164,8 +166,8 @@ export default function ArchitectureDiagram({ project }) {
               </div>
 
               <div style={{
-                background: '#0b1120',
-                border: '1px solid rgba(255,255,255,0.06)',
+                background: '#f8fafc',
+                border: '1px solid #e2e8f0',
                 borderRadius: '8px',
                 padding: '12px',
                 fontSize: '0.85rem',
@@ -183,11 +185,11 @@ export default function ArchitectureDiagram({ project }) {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-dim)' }}>
                   <span>ヘルスチェック:</span>
-                  <span style={{ color: '#fff' }}>HTTP 200 / Interval 15s</span>
+                  <span style={{ color: '#0f172a', fontWeight: 600 }}>HTTP 200 / Interval 15s</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-dim)' }}>
                   <span>セキュリティグループ:</span>
-                  <span style={{ color: 'var(--cyan-primary)' }}>sg-0a8f9c1e (Strict)</span>
+                  <span style={{ color: 'var(--cyan-primary)', fontWeight: 600 }}>sg-0a8f9c1e (Strict)</span>
                 </div>
               </div>
             </div>
