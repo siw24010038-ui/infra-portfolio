@@ -5,4 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/infra-portfolio/',
+  define: {
+    // ビルド実行時（= GitHub Actionsでのデプロイ時）の日時を自動で埋め込む
+    __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
+  },
 })
