@@ -7,6 +7,13 @@ import SkillsSection from './components/SkillsSection';
 import { projectsData } from './data/projectsData';
 import { Server, Layers, ArrowUp } from 'lucide-react';
 
+// vite.config.js の define で埋め込まれるビルド日時（デプロイごとに自動更新される）
+const lastUpdated = new Date(__BUILD_DATE__).toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+});
+
 export default function App() {
   const [activeSection, setActiveSection] = useState('works');
   const [selectedProject, setSelectedProject] = useState(null);
@@ -95,6 +102,9 @@ export default function App() {
         }}>
           <div>
             <strong style={{ color: '#0f172a' }}>山﨑 雄大 (Yudai Yamazaki)</strong> - Cloud & Infrastructure Engineer Portfolio
+            <span style={{ marginLeft: '12px', color: 'var(--text-dim)' }}>
+              最終更新日: {lastUpdated}
+            </span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
