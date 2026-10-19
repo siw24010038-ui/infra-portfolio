@@ -5,7 +5,7 @@ import ProjectCard from './components/ProjectCard';
 import ProjectDetailModal from './components/ProjectDetailModal';
 import SkillsSection from './components/SkillsSection';
 import { projectsData } from './data/projectsData';
-import { Server, Layers, ArrowUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 // vite.config.js の define で埋め込まれるビルド日時（デプロイごとに自動更新される）
 const lastUpdated = new Date(__BUILD_DATE__).toLocaleDateString('ja-JP', {
@@ -41,26 +41,22 @@ export default function App() {
         <HeroSection scrollToWorks={scrollToWorks} />
 
         {/* Works Grid Section */}
-        <section id="works-grid" style={{
+        <section id="works-grid" className="section-padding" style={{
           padding: '40px 24px 80px',
           maxWidth: '1280px',
           margin: '0 auto'
         }}>
-          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 48px' }}>
+          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 40px' }}>
             <div className="cyber-badge" style={{ marginBottom: '12px' }}>PROVEN ARCHITECTURES</div>
-            <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#0f172a', marginBottom: '12px' }}>
+            <h2 className="section-title-responsive" style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0f172a', marginBottom: '12px' }}>
               クラウドインフラ制作実績 (全3作品)
             </h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.6 }}>
-              AWS構成図、Terraform (IaC) コード、可用性・冗長化の設計思想を完備した3つの主要インフラ作品です。カードをクリックして詳細検証いただけます。
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+              AWS構成図、Terraform (IaC) コード、可用性・冗長化の設計思想を完備した3つの主要インフラ作品です。カードをタップして詳細検証いただけます。
             </p>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
-            gap: '32px'
-          }}>
+          <div className="works-grid-container">
             {projectsData.map((project) => (
               <ProjectCard 
                 key={project.id} 
@@ -87,7 +83,7 @@ export default function App() {
       <footer style={{
         background: '#ffffff',
         borderTop: '1px solid rgba(226, 232, 240, 0.8)',
-        padding: '32px 24px',
+        padding: '24px 16px',
         fontSize: '0.85rem',
         color: 'var(--text-dim)'
       }}>
@@ -98,7 +94,7 @@ export default function App() {
           justifyContent: 'space-between',
           alignItems: 'center',
           flexWrap: 'wrap',
-          gap: '16px'
+          gap: '14px'
         }}>
           <div>
             <strong style={{ color: '#0f172a' }}>山﨑 雄大 (Yudai Yamazaki)</strong> - Cloud & Infrastructure Engineer Portfolio
@@ -107,8 +103,8 @@ export default function App() {
             </span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <span>AWS Multi-AZ & Terraform HCL Modules</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '0.78rem' }}>AWS Multi-AZ & Terraform HCL Modules</span>
             <button 
               onClick={scrollToTop}
               style={{

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Terminal, Copy, Check, FileCode, Play, AlertCircle, GitBranch } from 'lucide-react';
+import { Copy, Check, FileCode, Play, GitBranch } from 'lucide-react';
 
 export default function CodeViewer({ project }) {
   const [selectedFile, setSelectedFile] = useState(project.codeFiles[0]);
@@ -36,15 +36,20 @@ export default function CodeViewer({ project }) {
       <div style={{
         background: '#0f172a',
         borderBottom: '1px solid rgba(255,255,255,0.08)',
-        padding: '8px 16px',
+        padding: '8px 12px',
         display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '8px'
+        flexDirection: 'column',
+        gap: '10px'
       }}>
-        {/* File Tabs */}
-        <div style={{ display: 'flex', gap: '4px', overflowX: 'auto' }}>
+        {/* Top Row: File Tabs */}
+        <div style={{
+          display: 'flex',
+          gap: '6px',
+          overflowX: 'auto',
+          whiteSpace: 'nowrap',
+          paddingBottom: '2px',
+          WebkitOverflowScrolling: 'touch'
+        }}>
           {project.codeFiles.map((file) => {
             const isSelected = selectedFile?.filename === file.filename;
             return (
@@ -59,54 +64,55 @@ export default function CodeViewer({ project }) {
                   color: isSelected ? 'var(--cyan-primary)' : 'var(--text-muted)',
                   border: isSelected ? '1px solid var(--border-cyan)' : '1px solid transparent',
                   borderRadius: '6px',
-                  padding: '6px 12px',
-                  fontSize: '0.8rem',
+                  padding: '5px 10px',
+                  fontSize: '0.75rem',
                   fontWeight: 600,
                   fontFamily: 'var(--font-mono)',
                   cursor: 'pointer',
-                  display: 'flex',
+                  display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '6px',
+                  gap: '5px',
+                  flexShrink: 0,
                   transition: 'all 0.2s ease'
                 }}
               >
-                <FileCode size={14} />
+                <FileCode size={13} />
                 {file.filename}
               </button>
             );
           })}
         </div>
 
-        {/* Copy & GitHub & Terraform Validate Simulation buttons */}
-        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-          <a 
-            href="https://github.com/siw24010038-ui/infra-portfolio" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="btn-secondary" 
-            style={{ fontSize: '0.75rem', padding: '4px 10px', textDecoration: 'none', color: '#fff' }}
+        {/* Action Buttons Row */}
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+          <button 
+            className="btn-secondary"
+            onClick={handleCopy}
+            style={{ fontSize: '0.72rem', padding: '5px 10px' }}
           >
-            <GitBranch size={12} color="var(--cyan-primary)" /> GitHubでコードを見る
-          </a>
+            {copied ? <Check size={12} color="var(--emerald-success)" /> : <Copy size={12} />}
+            {copied ? 'コピー完了' : 'コードコピー'}
+          </button>
 
           <button 
             className="btn-secondary"
             onClick={handleSimulateValidate}
             disabled={validating}
-            style={{ fontSize: '0.75rem', padding: '4px 10px' }}
+            style={{ fontSize: '0.72rem', padding: '5px 10px' }}
           >
             <Play size={12} color="var(--emerald-success)" />
-            {validating ? '検証中...' : 'terraform validate 実行'}
+            {validating ? '検証中...' : 'validate 実行'}
           </button>
 
-          <button 
-            className="btn-secondary"
-            onClick={handleCopy}
-            style={{ fontSize: '0.75rem', padding: '4px 10px' }}
+          <a 
+            href="https://github.com/siw24010038-ui/infra-portfolio" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn-secondary" 
+            style={{ fontSize: '0.72rem', padding: '5px 10px', textDecoration: 'none', color: '#0f172a' }}
           >
-            {copied ? <Check size={12} color="var(--emerald-success)" /> : <Copy size={12} />}
-            {copied ? 'コピー完了' : 'コードコピー'}
-          </button>
+            <GitBranch size={12} color="var(--cyan-primary)" /> GitHub
+          </a>
         </div>
       </div>
 
@@ -115,8 +121,8 @@ export default function CodeViewer({ project }) {
         <div style={{
           background: 'rgba(16, 185, 129, 0.1)',
           borderBottom: '1px solid rgba(16, 185, 129, 0.3)',
-          padding: '8px 16px',
-          fontSize: '0.8rem',
+          padding: '8px 12px',
+          fontSize: '0.75rem',
           color: 'var(--emerald-success)',
           display: 'flex',
           alignItems: 'center',
@@ -130,24 +136,26 @@ export default function CodeViewer({ project }) {
 
       {/* Code Display Area */}
       <div style={{
-        padding: '20px',
+        padding: '14px 10px',
         overflowX: 'auto',
-        maxHeight: '450px',
-        fontSize: '0.85rem',
+        maxHeight: '400px',
+        fontSize: '0.78rem',
         fontFamily: 'var(--font-mono)',
-        lineHeight: 1.6,
+        lineHeight: 1.55,
         color: '#e2e8f0',
-        background: '#0b1120'
+        background: '#0b1120',
+        WebkitOverflowScrolling: 'touch'
       }}>
         <pre style={{ margin: 0 }}>
           {selectedFile?.code.split('\n').map((line, idx) => (
-            <div key={idx} style={{ display: 'flex' }}>
+            <div key={idx} style={{ display: 'flex', minWidth: 'fit-content' }}>
               <span style={{
-                width: '40px',
+                width: '32px',
                 color: '#475569',
                 userSelect: 'none',
                 textAlign: 'right',
-                paddingRight: '16px'
+                paddingRight: '10px',
+                flexShrink: 0
               }}>
                 {idx + 1}
               </span>
@@ -155,7 +163,8 @@ export default function CodeViewer({ project }) {
                 color: line.trim().startsWith('#') ? '#64748b' :
                        line.includes('resource') || line.includes('module') ? '#38bdf8' :
                        line.includes('tags') || line.includes('cidr_block') ? '#f472b6' :
-                       '#f8fafc'
+                       '#f8fafc',
+                whiteSpace: 'pre'
               }}>
                 {line}
               </span>
@@ -168,14 +177,16 @@ export default function CodeViewer({ project }) {
       <div style={{
         background: '#0f172a',
         borderTop: '1px solid rgba(255,255,255,0.06)',
-        padding: '8px 16px',
-        fontSize: '0.75rem',
+        padding: '8px 12px',
+        fontSize: '0.7rem',
         color: 'var(--text-dim)',
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '4px'
       }}>
-        <span>Language: HCL / Terraform Module</span>
-        <span>Strict IAM Least Privilege & Tagging Best Practices Applied</span>
+        <span>HCL / Terraform Module</span>
+        <span>IAM Least Privilege Applied</span>
       </div>
     </div>
   );

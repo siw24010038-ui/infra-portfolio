@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Server, Database, Shield, Zap, Globe, Layers, CheckCircle, Info } from 'lucide-react';
+import { Server, Database, Shield, Zap, Globe, Layers, Info } from 'lucide-react';
 
 export default function ArchitectureDiagram({ project }) {
   const [selectedNode, setSelectedNode] = useState(project.nodes[0]);
@@ -8,31 +8,31 @@ export default function ArchitectureDiagram({ project }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {/* Header controls for Diagram */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
           <Layers size={18} color="var(--cyan-primary)" />
-          <span style={{ fontWeight: 700, fontSize: '1rem', color: '#fff' }}>AWS インフラ構成図 (インタラクティブ)</span>
-          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>※ノードをクリックすると詳細仕様が表示されます</span>
+          <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#0f172a' }}>AWS インフラ構成図 (インタラクティブ)</span>
+          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>※タップで仕様表示</span>
         </div>
 
         <button 
           className="btn-secondary"
           onClick={() => setAnimateTraffic(!animateTraffic)}
-          style={{ fontSize: '0.8rem', padding: '6px 14px' }}
+          style={{ fontSize: '0.75rem', padding: '6px 12px' }}
         >
           <Zap size={14} color={animateTraffic ? 'var(--amber-warning)' : 'var(--text-dim)'} />
-          トラフィックフローアニメーション: {animateTraffic ? 'ON' : 'OFF'}
+          トラフィック: {animateTraffic ? 'ON' : 'OFF'}
         </button>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: '20px' }}>
+      <div className="diagram-layout-grid">
         {/* Visual Diagram Box */}
-        <div style={{
+        <div className="diagram-box-padding" style={{
           background: '#ffffff',
           border: '1px solid var(--border-cyan)',
           borderRadius: '14px',
-          padding: '28px',
-          minHeight: '400px',
+          padding: '24px',
+          minHeight: '380px',
           position: 'relative',
           display: 'flex',
           flexDirection: 'column',
@@ -42,28 +42,21 @@ export default function ArchitectureDiagram({ project }) {
           {/* Subnet Boundaries Visual Background */}
           <div style={{
             position: 'absolute',
-            top: '16px',
-            left: '16px',
-            right: '16px',
-            bottom: '16px',
+            top: '12px',
+            left: '12px',
+            right: '12px',
+            bottom: '12px',
             border: '1.5px dashed rgba(2, 132, 199, 0.25)',
             borderRadius: '10px',
             pointerEvents: 'none'
           }}>
-            <span style={{ position: 'absolute', top: '8px', left: '12px', fontSize: '0.7rem', color: 'var(--cyan-primary)', fontWeight: 700 }}>
-              AWS REGION: ap-northeast-1 (TOKYO) - MULTI-AZ ISOLATION
+            <span style={{ position: 'absolute', top: '6px', left: '10px', fontSize: '0.65rem', color: 'var(--cyan-primary)', fontWeight: 700 }}>
+              REGION: ap-northeast-1 (MULTI-AZ)
             </span>
           </div>
 
           {/* Node Grid Layout */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: '16px',
-            position: 'relative',
-            zIndex: 2,
-            margin: '30px 0'
-          }}>
+          <div className="diagram-nodes-grid">
             {project.nodes.map((node) => {
               const isSelected = selectedNode?.id === node.id;
               return (
@@ -74,41 +67,42 @@ export default function ArchitectureDiagram({ project }) {
                     background: isSelected ? 'rgba(2, 132, 199, 0.08)' : '#f8fafc',
                     border: `1.5px solid ${isSelected ? 'var(--cyan-primary)' : '#e2e8f0'}`,
                     borderRadius: '12px',
-                    padding: '16px',
+                    padding: '12px',
                     cursor: 'pointer',
                     transition: 'all 0.2s ease',
                     boxShadow: isSelected ? '0 0 15px rgba(2, 132, 199, 0.2)' : 'none'
                   }}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '6px' }}>
                     <div style={{
-                      width: '32px',
-                      height: '32px',
-                      borderRadius: '8px',
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '7px',
                       background: isSelected ? 'var(--cyan-primary)' : '#e2e8f0',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: isSelected ? '#fff' : 'var(--cyan-primary)'
+                      color: isSelected ? '#fff' : 'var(--cyan-primary)',
+                      flexShrink: 0
                     }}>
-                      {node.type.includes('DB') || node.type.includes('Database') ? <Database size={18} /> :
-                       node.type.includes('Edge') || node.type.includes('CDN') ? <Globe size={18} /> :
-                       node.type.includes('Security') || node.type.includes('WAF') ? <Shield size={18} /> :
-                       <Server size={18} />}
+                      {node.type.includes('DB') || node.type.includes('Database') ? <Database size={16} /> :
+                       node.type.includes('Edge') || node.type.includes('CDN') ? <Globe size={16} /> :
+                       node.type.includes('Security') || node.type.includes('WAF') ? <Shield size={16} /> :
+                       <Server size={16} />}
                     </div>
 
-                    <span style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--emerald-success)', background: 'rgba(5,150,105,0.1)', padding: '2px 6px', borderRadius: '4px' }}>
+                    <span style={{ fontSize: '0.62rem', fontWeight: 600, color: 'var(--emerald-success)', background: 'rgba(5,150,105,0.1)', padding: '2px 5px', borderRadius: '4px' }}>
                       {node.status}
                     </span>
                   </div>
 
-                  <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#0f172a', marginBottom: '4px' }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.82rem', color: '#0f172a', marginBottom: '2px', wordBreak: 'break-word' }}>
                     {node.name}
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                  <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
                     {node.type}
                   </div>
-                  <div style={{ fontSize: '0.7rem', color: 'var(--cyan-primary)', marginTop: '6px', fontWeight: 600 }}>
+                  <div style={{ fontSize: '0.65rem', color: 'var(--cyan-primary)', marginTop: '4px', fontWeight: 600 }}>
                     📍 {node.az}
                   </div>
                 </div>
@@ -130,9 +124,9 @@ export default function ArchitectureDiagram({ project }) {
             </svg>
           )}
 
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-dim)', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '12px' }}>
-            <span>🔒 TLS 1.3 Strict Encrypted Traffic</span>
-            <span>🛡️ Isolated Private Subnets & Security Groups</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '6px', fontSize: '0.72rem', color: 'var(--text-dim)', borderTop: '1px solid #e2e8f0', paddingTop: '10px' }}>
+            <span>🔒 TLS 1.3 Strict Encrypted</span>
+            <span>🛡️ Isolated Private Subnets</span>
           </div>
         </div>
 

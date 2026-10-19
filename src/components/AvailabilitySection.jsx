@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, CheckCircle2, AlertTriangle, RefreshCw, Clock, Activity, Zap } from 'lucide-react';
+import { ShieldCheck, RefreshCw, Clock, Activity, Zap } from 'lucide-react';
 
 export default function AvailabilitySection({ project }) {
   const { availabilityDetails, targetSla, rto, rpo } = project;
@@ -7,16 +7,12 @@ export default function AvailabilitySection({ project }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       {/* SLA & RTO/RPO Metrics Bar */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-        gap: '16px'
-      }}>
-        <div style={{ background: 'rgba(6, 182, 212, 0.08)', border: '1px solid var(--border-cyan)', borderRadius: '12px', padding: '16px 20px' }}>
+      <div className="availability-metrics-grid">
+        <div style={{ background: 'rgba(6, 182, 212, 0.08)', border: '1px solid var(--border-cyan)', borderRadius: '12px', padding: '14px 16px' }}>
           <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
             <Activity size={14} color="var(--cyan-primary)" /> 目標システムSLA (稼働率)
           </div>
-          <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--cyan-primary)' }}>
+          <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--cyan-primary)' }}>
             {targetSla}
           </div>
           <div style={{ fontSize: '0.7rem', color: 'var(--text-dim)', marginTop: '4px' }}>
@@ -24,11 +20,11 @@ export default function AvailabilitySection({ project }) {
           </div>
         </div>
 
-        <div style={{ background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '12px', padding: '16px 20px' }}>
+        <div style={{ background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '12px', padding: '14px 16px' }}>
           <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
             <Clock size={14} color="var(--emerald-success)" /> 目標復旧時間 (RTO)
           </div>
-          <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--emerald-success)' }}>
+          <div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--emerald-success)' }}>
             {rto}
           </div>
           <div style={{ fontSize: '0.7rem', color: 'var(--text-dim)', marginTop: '4px' }}>
@@ -36,11 +32,11 @@ export default function AvailabilitySection({ project }) {
           </div>
         </div>
 
-        <div style={{ background: 'rgba(139, 92, 246, 0.08)', border: '1px solid rgba(139, 92, 246, 0.3)', borderRadius: '12px', padding: '16px 20px' }}>
+        <div style={{ background: 'rgba(139, 92, 246, 0.08)', border: '1px solid rgba(139, 92, 246, 0.3)', borderRadius: '12px', padding: '14px 16px' }}>
           <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
             <Zap size={14} color="var(--purple-accent)" /> 目標復旧時点 (RPO)
           </div>
-          <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--purple-accent)' }}>
+          <div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--purple-accent)' }}>
             {rpo}
           </div>
           <div style={{ fontSize: '0.7rem', color: 'var(--text-dim)', marginTop: '4px' }}>
@@ -54,34 +50,35 @@ export default function AvailabilitySection({ project }) {
         background: '#ffffff',
         border: '1px solid var(--border-cyan)',
         borderRadius: '14px',
-        padding: '24px',
+        padding: '20px 16px',
         boxShadow: '0 4px 20px rgba(0,0,0,0.03)'
       }}>
-        <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <ShieldCheck color="var(--emerald-success)" size={20} />
+        <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#0f172a', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <ShieldCheck color="var(--emerald-success)" size={18} />
           単一障害点 (SPOF) 排除チェックリスト
         </h3>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {availabilityDetails.spofChecklist.map((item, idx) => (
             <div 
               key={idx}
+              className="spof-item-row"
               style={{
                 background: '#f8fafc',
                 border: '1px solid #e2e8f0',
                 borderRadius: '10px',
-                padding: '14px 18px',
+                padding: '12px 14px',
                 display: 'flex',
                 alignItems: 'flex-start',
                 justifyContent: 'space-between',
-                gap: '16px'
+                gap: '12px'
               }}
             >
               <div>
-                <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#0f172a', marginBottom: '4px' }}>
+                <div style={{ fontWeight: 700, fontSize: '0.88rem', color: '#0f172a', marginBottom: '3px' }}>
                   {item.item}
                 </div>
-                <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+                <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
                   {item.detail}
                 </div>
               </div>
@@ -91,8 +88,8 @@ export default function AvailabilitySection({ project }) {
                 color: 'var(--emerald-success)',
                 border: '1px solid rgba(5, 150, 105, 0.3)',
                 borderRadius: '6px',
-                padding: '4px 10px',
-                fontSize: '0.75rem',
+                padding: '3px 8px',
+                fontSize: '0.7rem',
                 fontWeight: 700,
                 letterSpacing: '0.05em',
                 flexShrink: 0
