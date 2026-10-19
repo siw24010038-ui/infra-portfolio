@@ -96,11 +96,13 @@ export default function App() {
           flexWrap: 'wrap',
           gap: '14px'
         }}>
-          <div>
-            <strong style={{ color: '#0f172a' }}>山﨑 雄大 (Yudai Yamazaki)</strong> - Cloud & Infrastructure Engineer Portfolio
-            <span style={{ marginLeft: '12px', color: 'var(--text-dim)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <div style={{ fontWeight: 600 }}>
+              <strong style={{ color: '#0f172a' }}>山﨑 雄大 (Yudai Yamazaki)</strong> - Cloud & Infrastructure Engineer Portfolio
+            </div>
+            <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)' }}>
               最終更新日: {lastUpdated}
-            </span>
+            </div>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
